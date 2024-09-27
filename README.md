@@ -18,29 +18,73 @@ This includes NetMHCpan-based MHC binding predictions and GibbsCluster2.0, as we
 
 ## Input parameter reference (also see -h)
 
-# Arguments for input and workflow determination
-"-i", "--in_dir", required=True, type=Path, help="Directory with the .d/.raw/.mzML files.")
-    parser.add_argument('-search', action='store_true', help="Perform database searches. Specify engines! E.g. -comet).")
-    parser.add_argument('-rescore', action='store_true', help="Run MS2Rescore.")
-    parser.add_argument('-report', action='store_true', help="Perform post-hoc reports (plots, tables, ..).")
-    parser.add_argument('-quant', action='store_true', help="Enable FlashLFQ quantification.")
+## Input Parameter Reference
 
-    # Search engines and database
-    parser.add_argument('-comet', action='store_true', help="Run Comet and/or parse existing Comet search results.")
-    parser.add_argument('-frag', action='store_true', help="Run MSFragger and/or parse existing MSFragger search results.")
-    parser.add_argument('-sage', action='store_true', help="Run Sage and/or parse existing Sage search results.")
-    parser.add_argument('-peaks', action='store_true', help="Also read-in PEAKS results (put 'db.psms.csv' in /report/search_res/PEAKS/!")
-    parser.add_argument("-fa", "--fasta", required=True, type=Path, help="Fasta file, required for search.'")
-    mods = ['mod','NL','nomod','rank2','TMT16','TMT10','semi','mhcii','lowres','restricted','tryptic','tryptic_lowres','glygly']
-    parser.add_argument("-mod", default='mod', required=False, type=str, choices=mods, help="Choose from: 'nomod' (only M oxidation), mod (M oxidation, Cysteinylation, pyroGlu's, Nt Acetylation), TMT10 or TMT16.'")
-    # Reporting options
-    parser.add_argument("-len", default='9', required=False, type=str, help="Immunopeptide length. Default 9 for human MHCI. Can set an interval as '8-11'.")
-    parser.add_argument("-HLA", default="human", required=False, type=str, help="Choose either 'JY', 'HeLa', or 'mouse'...")
-    parser.add_argument("-gibbs", default='auto', required=False, type=str, choices=['skip','2','3','4','5','auto'], help="Number of maximal clusters to run with GibbsCluster2. Default is 'auto', which will use cluster (from 2 to 5) with highest KLD. Set to 'skip' to turn off Gibbs clustering.'")
-    parser.add_argument("-host", default='0', required=False, type=str, help="Input the species tag (e.g. HUMAN) to do a background check (BLASTP-like) and plot all spectra of peptides not matching to this species (unless -no_spectra_plots).'")
-    parser.add_argument("-contaminant", default='CON__', required=False, type=str, help="Contaminant match pattern, default is 'CON__' (MaxQuant).'")
-    parser.add_argument("-no_spectra_plots", action='store_true', help="Do not plot annotated MS2 spectra.'")
-    parser.add_argument("-plot_chimera", action='store_true', help="Plot annotated spectra for spectra assigned to multiple peptides by different engines.'")
+### Arguments for Input and Workflow Determination:
+- `-i`, `--in_dir` **(required)**:  
+  Directory with the `.d`, `.raw`, `.mzML` files.
+  
+- `-search`:  
+  Perform database searches. Specify engines (e.g. `-comet`).
+  
+- `-rescore`:  
+  Run MS2Rescore.
+  
+- `-report`:  
+  Perform post-hoc reports (plots, tables, etc.).
+  
+- `-quant`:  
+  Enable FlashLFQ quantification.
+
+### Search Engines and Database:
+- `-comet`:  
+  Run Comet and/or parse existing Comet search results.
+  
+- `-frag`:  
+  Run MSFragger and/or parse existing MSFragger search results.
+  
+- `-sage`:  
+  Run Sage and/or parse existing Sage search results.
+  
+- `-peaks`:  
+  Also read-in PEAKS results (place `db.psms.csv` in `/report/search_res/PEAKS/`).
+  
+- `-fa`, `--fasta` **(required)**:  
+  Fasta file required for search.
+
+### Modification Options:
+- `-mod` **(default: 'mod')**:  
+  Choose modification type from:
+  - `'nomod'`: Only Methionine oxidation.
+  - `'mod'`: Methionine oxidation, Cysteinylation, pyroGlus, N-terminal acetylation.
+  - `'TMT10'`, `'TMT16'`.
+  
+  Other options: `'NL'`, `'rank2'`, `'semi'`, `'mhcii'`, `'lowres'`, `'restricted'`, `'tryptic'`, `'tryptic_lowres'`, `'glygly'`.
+
+### Reporting Options:
+- `-len` **(default: '9')**:  
+  Immunopeptide length (default: 9 for human MHCI). Set an interval using `'8-11'`.
+
+- `-HLA` **(default: 'human')**:  
+  Choose either `'JY'`, `'HeLa'`, or `'mouse'`.
+
+- `-gibbs` **(default: 'auto')**:  
+  Number of maximal clusters to run with GibbsCluster2. Options:
+  - `'skip'`: Turn off Gibbs clustering.
+  - `'2'`, `'3'`, `'4'`, `'5'`, `'auto'`: Auto will use the cluster (from 2 to 5) with the highest KLD.
+
+- `-host` **(default: '0')**:  
+  Input the species tag (e.g., `HUMAN`) for background check (BLASTP-like). Plots all spectra of peptides not matching this species (unless `-no_spectra_plots` is used).
+
+- `-contaminant` **(default: 'CON__')**:  
+  Contaminant match pattern, default is `'CON__'` (MaxQuant).
+
+- `-no_spectra_plots`:  
+  Do not plot annotated MS2 spectra.
+
+- `-plot_chimera`:  
+  Plot annotated spectra for spectra assigned to multiple peptides by different engines.
+
 
 
 ## Compatibility
