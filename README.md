@@ -37,6 +37,8 @@ This includes NetMHCpan-based MHC binding predictions and GibbsCluster2.0, as we
   Enable FlashLFQ quantification.
 
 ### Search Engines and Database:
+**For everyone workflow (search/rescore/quant/report) the search engine results that you want to consider have to be specified.**
+
 - `-comet`:  
   Run Comet and/or parse existing Comet search results.
   
@@ -48,44 +50,44 @@ This includes NetMHCpan-based MHC binding predictions and GibbsCluster2.0, as we
   
 - `-peaks`:  
   Also read-in PEAKS results (place `db.psms.csv` in `/report/search_res/PEAKS/`).
+  For rescoring this requires to export decoys - see section below!
   
 - `-fa`, `--fasta` **(required)**:  
-  Fasta file required for search.
+  Fasta file required for search. Decoys need a 'rev_' prefix, they are generated automatically if not present.
 
 ### Modification Options:
 - `-mod` **(default: 'mod')**:  
   Choose modification type from:
   - `'nomod'`: Only Methionine oxidation.
   - `'mod'`: Methionine oxidation, Cysteinylation, pyroGlus, N-terminal acetylation.
-  - `'TMT10'`, `'TMT16'`.
-  
-  Other options: `'NL'`, `'rank2'`, `'semi'`, `'mhcii'`, `'lowres'`, `'restricted'`, `'tryptic'`, `'tryptic_lowres'`, `'glygly'`.
+  - `'TMT10'`: Fixed TMT10-plex N-termini and Lys, variable methionine oxidation and cysteinylation.
+  - `'TMT16'`: Fixed TMT16-plex N-termini and Lys, variable methionine oxidation and cysteinylation.
 
 ### Reporting Options:
 - `-len` **(default: '9')**:  
   Immunopeptide length (default: 9 for human MHCI). Set an interval using `'8-11'`.
 
 - `-HLA` **(default: 'human')**:  
-  Choose either `'JY'`, `'HeLa'`, or `'mouse'`.
+  For instance `'JY'`, `'A549'`, `'HeLa'`, or `'mouse'`. Specify your own in dictionary in core.py.
 
 - `-gibbs` **(default: 'auto')**:  
   Number of maximal clusters to run with GibbsCluster2. Options:
   - `'skip'`: Turn off Gibbs clustering.
   - `'2'`, `'3'`, `'4'`, `'5'`, `'auto'`: Auto will use the cluster (from 2 to 5) with the highest KLD.
 
-- `-host` **(default: '0')**:  
-  Input the species tag (e.g., `HUMAN`) for background check (BLASTP-like). Plots all spectra of peptides not matching this species (unless `-no_spectra_plots` is used).
-
 - `-contaminant` **(default: 'CON__')**:  
   Contaminant match pattern, default is `'CON__'` (MaxQuant).
-
-- `-no_spectra_plots`:  
-  Do not plot annotated MS2 spectra.
 
 - `-plot_chimera`:  
   Plot annotated spectra for spectra assigned to multiple peptides by different engines.
 
+** Only relevant to bacterial infection set-ups:**
 
+- `-host` **(default: '0')**:  
+  Input the species tag (e.g., `HUMAN`) for background check (BLASTP-like). Plots all spectra of peptides not matching this species (unless `-no_spectra_plots` is used).
+
+- `-no_spectra_plots`:  
+  Do not plot annotated MS2 spectra.
 
 ## Compatibility
 This pipeline is currently only tested and used within a Linux Ubuntu environment.
