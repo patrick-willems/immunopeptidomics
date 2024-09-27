@@ -16,8 +16,6 @@ FlashLFQ is ran for the identified PSMs. Currently only supports Orbitrap (.RAW)
 Results for all search engines are integrated at a mokapot 1% peptide-level FDR (after rescoring). A variety of immuno-informatic tools and quality plots are generated. 
 This includes NetMHCpan-based MHC binding predictions and GibbsCluster2.0, as well as peptide length histograms, identifications per runs, logo's etc. plotted using matplotlib and seaborn.
 
-## Input parameter reference (also see -h)
-
 ## Input Parameter Reference
 
 ### Arguments for Input and Workflow Determination:
@@ -92,7 +90,10 @@ This includes NetMHCpan-based MHC binding predictions and GibbsCluster2.0, as we
 ## Compatibility
 This pipeline is currently only tested and used within a Linux Ubuntu environment.
 The python script can be easily transformed in a GUI using for instance streamlit.
-For MSFragger and Sage searches take up a lot of memory (we use a 500 GB RAM server), though a splitted database search can be performed.  
+For MSFragger and Sage searches take up a lot of memory (we use a 500 GB RAM server), though a splitted database search can be performed. 
+
+### PEAKS Studio 12
+Results from PEAKS Studio 12 can be considered, but these require separate running with PEAKS Studio and placing the exported PSM report (db.psms.csv) in the correct output folders (../report/search_res/PEAKS/). From this, a MS2Rescore compatible input is made and rescored. PEAKS Studio 12 configuration (peaks.conf) has to be adapted to export decoys by updating `"show-debug-panel" : true,` and adding below the line `"export-decoy" : true,`. Importantly, **all PSMs have to be exported for rescoring**, this can be achieved by setting the required -lg10P threshold to 0, thus not applying any scoring/FDR thresholds.
 
 ## External tools
 This processing is currently developed using tools listed below that have to be downloaded/installed. Not all tools are required to run part of the pipeline workflow. For instance, only searching and re-scoring can be performed using the search engine of choice
