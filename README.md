@@ -110,7 +110,7 @@ This processing is currently developed using tools listed below that have to be 
 - NetMHCIIpan-4.3, https://services.healthtech.dtu.dk/services/NetMHCIIpan-4.3/
 
 ### Quantification
-- FlashLFQ, https://github.com/smith-chem-wisc/FlashLFQ
+- FlashLFQ, https://github.com/smith-chem-wisc/FlashLFQ (requires dotnet on linux)
   
 ### Python packages
 - ms2rescore, https://github.com/compomics/ms2rescore
