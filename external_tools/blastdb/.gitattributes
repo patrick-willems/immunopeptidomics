@@ -1,0 +1,17 @@
+mouse.pin filter=lfs diff=lfs merge=lfs -text
+README.md filter=lfs diff=lfs merge=lfs -text
+human.phr filter=lfs diff=lfs merge=lfs -text
+mouse.phd filter=lfs diff=lfs merge=lfs -text
+human.phi filter=lfs diff=lfs merge=lfs -text
+human.psi filter=lfs diff=lfs merge=lfs -text
+mouse.psq filter=lfs diff=lfs merge=lfs -text
+mouse.phi filter=lfs diff=lfs merge=lfs -text
+mouse.psd filter=lfs diff=lfs merge=lfs -text
+human.pog filter=lfs diff=lfs merge=lfs -text
+human.psd filter=lfs diff=lfs merge=lfs -text
+human.psq filter=lfs diff=lfs merge=lfs -text
+mouse.phr filter=lfs diff=lfs merge=lfs -text
+mouse.pog filter=lfs diff=lfs merge=lfs -text
+mouse.psi filter=lfs diff=lfs merge=lfs -text
+human.phd filter=lfs diff=lfs merge=lfs -text
+human.pin filter=lfs diff=lfs merge=lfs -text
