@@ -66,6 +66,7 @@ This includes NetMHCpan-based MHC binding predictions and GibbsCluster2.0, as we
 
 - `-HLA` **(default: 'human')**:  
   For instance `'JY'`, `'A549'`, `'HeLa'`, or `'mouse'`. Specify your own in dictionary in core.py.
+  NetMHCpan alleles can also be specified directly, e.g. `'HLA-A03:01,HLA-B07:02,HLA-B39:01'`
 
 - `-gibbs` **(default: 'auto')**:  
   Number of maximal clusters to run with GibbsCluster2. Options:
