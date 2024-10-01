@@ -78,7 +78,7 @@ This includes NetMHCpan-based MHC binding predictions and GibbsCluster2.0, as we
 - `-plot_chimera`:  
   Plot annotated spectra for spectra assigned to multiple peptides by different engines.
 
-** Only relevant to bacterial infection set-ups:**
+**Only relevant to bacterial infection set-ups:**
 
 - `-host` **(default: '0')**:  
   Input the species tag (e.g., `HUMAN`) for background check (BLASTP-like). Plots all spectra of peptides not matching this species (unless `-no_spectra_plots` is used).
