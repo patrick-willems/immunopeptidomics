@@ -47,8 +47,7 @@ This includes NetMHCpan-based MHC binding predictions and GibbsCluster2.0, as we
   Run Sage and/or parse existing Sage search results.
   
 - `-peaks`:  
-  Also read-in PEAKS results (place `db.psms.csv` in `/report/search_res/PEAKS/`).
-  For rescoring this requires to export decoys - see section below!
+  Read instructions [here](https://github.com/patrick-willems/immunopeptidomics/blob/main/README.md#peaks-studio-12).
   
 - `-fa`, `--fasta` **(required)**:  
   Fasta file required for search. Decoys need a 'rev_' prefix, they are generated automatically if not present.
