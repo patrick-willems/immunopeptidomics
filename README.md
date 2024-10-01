@@ -35,7 +35,7 @@ This includes NetMHCpan-based MHC binding predictions and GibbsCluster2.0, as we
   Enable FlashLFQ quantification. Only for Orbitrap data currently!
 
 ### Search Engines and Database:
-**For everyone workflow (search/rescore/quant/report) the search engine results that you want to consider have to be specified.**
+**For every workflow (search/rescore/quant/report), the search engine(s) (results) of interest need to be specified.**
 
 - `-comet`:  
   Run Comet and/or parse existing Comet search results.
