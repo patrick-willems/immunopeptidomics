@@ -90,7 +90,7 @@ activation_method = ALL                # activation method; used if activation m
 # misc parameters
 #
 digest_mass_range = 600.0 5000.0       # MH+ peptide mass range to analyze
-peptide_length_range = 7 20            # minimum and maximum peptide length to analyze (default 1 63; max length 63)
+peptide_length_range = 7 30            # minimum and maximum peptide length to analyze (default 1 63; max length 63)
 num_results = 100                      # number of search hits to store internally
 max_duplicate_proteins = 20            # maximum number of additional duplicate protein names to report for each peptide ID; -1 reports all duplicates
 max_fragment_charge = 2                # set maximum fragment charge state to analyze (allowed max 5)
