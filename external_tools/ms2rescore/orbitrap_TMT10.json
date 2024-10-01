@@ -1,0 +1,48 @@
+{
+    "$schema": "./config_schema.json",
+    "ms2rescore": {
+        "feature_generators": {
+            "basic": {},
+            "ms2pip": {
+                "model": "TMT",
+                "ms2_tolerance": 0.02
+            },
+            "deeplc": {
+                "deeplc_retrain": false,
+                "n_epochs": 20,
+                "calibration_set_size": 0.15
+            }
+        },
+        "rescoring_engine": {
+            "mokapot": {
+                "write_weights": true,
+                "write_txt": true,
+                "write_flashlfq": false,
+                "protein_kwargs": {}
+            }
+        },
+        "config_file": null,
+        "psm_file": [
+            "C:/Users/Installer/Documents/SOFTWARE/fragpipe_ms2rescore/mtb/rescoring/combined.tsv"
+        ],
+        "psm_file_type": "tsv",
+        "psm_reader_kwargs": {},
+        "spectrum_path": "C:/Users/Installer/Documents/SOFTWARE/fragpipe_ms2rescore/mtb",
+        "output_path": "C:/Users/Installer/Documents/SOFTWARE/fragpipe_ms2rescore/mtb/rescoring/combined.ms2rescore",
+        "log_level": "info",
+        "id_decoy_pattern": null,
+        "psm_id_pattern": "scan=(\\d+)_",
+        "spectrum_id_pattern": "scan=(\\d+)",
+        "lower_score_is_better": false,
+        "modification_mapping": {
+		"Acetyl": "U:Acetylation",
+		"Cysteinylation": "U:Cysteinylation",
+		"TMT6plex": "U:TMT6plex"
+	},
+        "fixed_modifications": {},
+        "processes": -1,
+        "rename_to_usi": false,
+        "fasta_file": null,
+        "write_report": true
+    }
+}
