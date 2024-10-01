@@ -20,7 +20,7 @@ This includes NetMHCpan-based MHC binding predictions and GibbsCluster2.0, as we
 
 ### Arguments for Input and Workflow Determination:
 - `-i`, `--in_dir` **(required)**:  
-  Directory with the `.d`, `.raw`, `.mzML` files.
+  Directory with the `.d` or `.raw` files, or preprocessed `.mzML` files.
   
 - `-search`:  
   Perform database searches. Specify engines (e.g. `-comet`).
@@ -32,7 +32,7 @@ This includes NetMHCpan-based MHC binding predictions and GibbsCluster2.0, as we
   Perform post-hoc reports (plots, tables, etc.).
   
 - `-quant`:  
-  Enable FlashLFQ quantification.
+  Enable FlashLFQ quantification. Only for Orbitrap data currently!
 
 ### Search Engines and Database:
 **For everyone workflow (search/rescore/quant/report) the search engine results that you want to consider have to be specified.**
